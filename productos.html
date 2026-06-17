@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="icon" href="img/logo.PNG" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productos - Librería Quin</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#ffffff;
+}
+
+.contenedor{
+    width:100%;
+    margin:0;
+    border:none;
+}
+
+/* PORTADA */
+
+header{
+    height:120px;
+    background-image:url('img/fondo 3.PNG');
+    background-size:cover;
+    background-position:center;
+}
+
+/* MENU */
+
+nav{
+    background:#f5f5f5;
+    border-top:1px solid #999;
+    border-bottom:1px solid #999;
+    padding:12px 0;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    list-style:none;
+}
+
+nav ul li button{
+    padding:14px 22px;
+    background:#f7f7f7;
+    border:1px solid #aaa;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:18px;
+    color:#333;
+    cursor:pointer;
+    transition:background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+nav ul li button:hover{
+    background:#e6f0ff;
+    border-color:#1e90ff;
+    transform:translateY(-1px);
+}
+
+nav ul li button.productos{
+    color:#ff4d00;
+    border-color:#ff4d00;
+}
+
+/* CONTENIDO */
+
+.producto{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    padding:25px;
+    gap:20px;
+    justify-content:center;
+}
+
+.perfil{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+}
+
+.img-producto{
+    width:170px;
+    height:120px;
+    object-fit:cover;
+}
+
+.texto{
+    flex:1 1 400px;
+    font-size:18px;
+    font-weight:bold;
+    line-height:1.5;
+}
+
+.reacciones{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+}
+
+.reacciones-row{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.like-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:24px;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    border:1px solid #ccc;
+    transition:all 0.25s ease;
+    user-select:none;
+}
+
+.like-button:hover{
+    background:#f0f0f0;
+}
+
+.like-button.activo{
+    background:#ff4d00;
+    color:#fff;
+    border-color:#ff4d00;
+}
+
+.like-count,
+.eye-count{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.eye-count{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.reacciones p{
+    font-size:16px;
+    margin:0;
+}
+
+</style>
+<script>
+function toggleLike(element) {
+    const count = element.querySelector('.like-count');
+    const current = parseInt(count.textContent.replace(/\D/g, ''));
+
+    if (element.classList.contains('activo')) {
+        count.textContent = current - 1;
+        element.classList.remove('activo');
+    } else {
+        count.textContent = current + 1;
+        element.classList.add('activo');
+    }
+}
+</script>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header></header>
+
+<nav>
+<ul>
+<li><button>Inició</button></li>
+<li><button class="productos">Productos</button></li>
+<li><button>comentarios y preguntas</button></li>
+<li><button>Prod. Mas vendidos</button></li>
+<li><button>Curso y Blog</button></li>
+<li><button>Cuenta</button></li>
+</ul>
+</nav>
+
+<div class="producto">
+
+<img class="perfil" src="https://i.pravatar.cc/100?img=12">
+
+<img class="img-producto" src="img/publicación.PNG">
+
+<div class="texto">
+colección de cuadernos tapa blanda de distintos diseño acompañados de útiles esenciales como resaltadores, lápices y marcadores, los cuadernos son de 80 hojas cada uno pero uno es cuadriculado, otro rayado y otro liso.
+</div>
+
+<div class="reacciones">
+    <div class="reacciones-row">
+        <div class="like-button" onclick="toggleLike(this)" data-likes="2700">👍 <span class="like-count">2700</span></div>
+        <div class="eye-count">👁 <span>5.6k</span></div>
+    </div>
+</div>
+
+</div>
+
+<div class="producto">
+
+<img class="perfil" src="https://i.pravatar.cc/100?img=32">
+
+<img class="img-producto" src="img/publicación 2.PNG">
+
+<div class="texto">
+Este kit escolar incluye todo lo esencial: marcadores, resaltador, corrector, lápiz, regla y un práctico bloc A4 de 80 hojas rayadas. Ideal para organizar tus apuntes con estilo y color, combinando funcionalidad y diseño en un solo producto.
+</div>
+
+<div class="reacciones">
+    <div class="reacciones-row">
+        <div class="like-button" onclick="toggleLike(this)" data-likes="1800">👍 <span class="like-count">1800</span></div>
+        <div class="eye-count">👁 <span>3.9k</span></div>
+    </div>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

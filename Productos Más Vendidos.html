@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="icon" href="img/logo.PNG" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productos Más Vendidos</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#ffffff;
+margin:0;
+padding:0;
+}
+
+.contenedor{
+width:100%;
+margin:0;
+border:none;
+}
+
+header{
+height:120px;
+background-image:url('img/fondo 5.PNG');
+background-size:cover;
+background-position:center;
+}
+
+nav{
+background:#f5f5f5;
+border-top:1px solid #999;
+border-bottom:1px solid #999;
+padding:12px 0;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+}
+
+nav ul li{
+list-style:none;
+}
+
+nav ul li button{
+padding:14px 22px;
+background:#f7f7f7;
+border:1px solid #aaa;
+border-radius:8px;
+font-weight:bold;
+font-size:18px;
+color:#333;
+cursor:pointer;
+transition:background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+nav ul li button:hover{
+background:#e6f0ff;
+border-color:#1e90ff;
+transform:translateY(-1px);
+}
+
+nav ul li button.activo{
+color:#ff4d00;
+border-color:#ff4d00;
+}
+
+.producto{
+display:flex;
+padding:30px;
+gap:30px;
+align-items:center;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.producto img{
+width:180px;
+height:220px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.info{
+width:700px;
+}
+
+.top{
+font-size:35px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.reacciones{
+font-size:22px;
+margin-bottom:15px;
+font-weight:bold;
+}
+
+.descripcion{
+font-size:22px;
+font-style:italic;
+font-weight:bold;
+line-height:1.6;
+}
+
+.precio{
+font-size:55px;
+font-weight:bold;
+margin-top:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header></header>
+
+<nav>
+<ul>
+<li><button>Inició</button></li>
+<li><button>Productos</button></li>
+<li><button>comentarios y preguntas</button></li>
+<li><button class="activo">Prod. Mas vendidos</button></li>
+<li><button>Curso y Blog</button></li>
+<li><button>Cuenta</button></li>
+</ul>
+</nav>
+
+<div class="producto">
+
+<img src="img/publicación 3.PNG">
+
+<div class="info">
+
+<div class="top">N°1 En ventas</div>
+
+<div class="reacciones">
+👁 46.3 k &nbsp;&nbsp; 👍 12.6 k
+</div>
+
+<div class="descripcion">
+Combo Estudiantil ideal para organizar tus apuntes con estilo. Incluye cuadernos con sistema de discos reutilizables, un anotador práctico tipo checklist y un set de resaltadores en colores pasteles. Perfecto para combinar funcionalidad y diseño, permitiendo ordenar materias, tomar notas y destacar lo importante de manera cómoda y prolija.
+</div>
+
+<div class="precio">
+costo: $6.500
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

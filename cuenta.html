@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="icon" href="img/logo.PNG" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cuenta</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f1f1f1;
+}
+
+.contenedor{
+width:100%;
+margin:0;
+background:#ececec;
+border-radius:0;
+overflow:hidden;
+border:2px solid #444;
+}
+
+/* MENU SUPERIOR */
+
+nav{
+    background:#f5f5f5;
+    border-top:1px solid #999;
+    border-bottom:1px solid #999;
+    padding:12px 0;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    list-style:none;
+}
+
+nav ul li button{
+    padding:14px 22px;
+    background:#f7f7f7;
+    border:1px solid #aaa;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:18px;
+    color:#333;
+    cursor:pointer;
+    transition:background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+nav ul li button:hover{
+    background:#e6f0ff;
+    border-color:#1e90ff;
+    transform:translateY(-1px);
+}
+
+nav ul li button.cuenta{
+    color:#ff4d00;
+    border-color:#ff4d00;
+}
+
+/* PORTADA */
+
+.portada{
+height:180px;
+background-image:url('img/fondo 6.PNG');
+background-size:cover;
+background-position:center;
+position:relative;
+}
+
+/* PERFIL */
+
+.perfil{
+display:flex;
+align-items:end;
+gap:20px;
+padding:20px;
+position:absolute;
+bottom:-20px;
+}
+
+.perfil img{
+width:120px;
+height:120px;
+border-radius:50%;
+background:rgb(255, 43, 43);
+}
+
+.perfil h1{
+font-size:55px;
+font-weight:bold;
+}
+
+/* MENU PERFIL */
+
+.menu{
+display:flex;
+gap:12px;
+justify-content:center;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+.menu button{
+padding:18px 30px;
+background:#f7f7f7;
+border:1px solid #aaa;
+border-radius:8px;
+font-weight:bold;
+font-size:20px;
+color:#333;
+cursor:pointer;
+transition:background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.menu button:hover{
+background:#e6f0ff;
+border-color:#1e90ff;
+transform:translateY(-1px);
+}
+
+.menu button.activo{
+color:#ff4d00;
+border-color:#ff4d00;
+}
+
+.hidden {
+display: none;
+}
+
+/* PUBLICACIONES */
+
+.publicacion{
+display:flex;
+flex-wrap:wrap;
+padding:30px;
+gap:25px;
+align-items:flex-start;
+}
+
+.publicacion img{
+width:100%;
+max-width:360px;
+height:auto;
+object-fit:contain;
+border-radius:8px;
+background:#fff;
+}
+
+.info{
+flex:1 1 480px;
+min-width:280px;
+font-size:22px;
+font-weight:bold;
+line-height:1.5;
+}
+
+.precio{
+font-size:65px;
+margin-top:20px;
+font-weight:bold;
+}
+
+.reacciones{
+font-size:25px;
+font-weight:bold;
+display:flex;
+gap:18px;
+align-items:center;
+}
+
+.like-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:10px 16px;
+    border:1px solid #aaa;
+    border-radius:8px;
+    background:#f7f7f7;
+    font-size:22px;
+    font-weight:bold;
+    color:#333;
+    cursor:pointer;
+    transition:background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.like-btn:hover{
+    background:#e6f0ff;
+    border-color:#1e90ff;
+    transform:translateY(-1px);
+}
+
+.like-btn.activo{
+    background:#ff4d00;
+    color:#fff;
+    border-color:#ff4d00;
+}
+
+/* COMENTARIOS */
+.comentarios{
+    width:calc(100% - 40px);
+    max-width:1200px;
+    margin:20px auto;
+    background:#fff;
+    padding:20px;
+    box-sizing:border-box;
+    border-radius:12px;
+}
+
+.comentario{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.avatar{
+    width:65px;
+    height:65px;
+    min-width:65px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid #333;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.contenido{
+    flex:1;
+}
+
+.estrellas{
+    font-size:22px;
+    color:#f4b400;
+    line-height:1;
+    margin-bottom:5px;
+}
+
+.estrellas .vacia{
+    color:#000;
+}
+
+.texto{
+    font-size:16px;
+    font-weight:600;
+    color:#111;
+    margin-bottom:8px;
+}
+
+.responder{
+    color:#d94b00;
+    font-style:italic;
+    font-weight:bold;
+    text-decoration:underline;
+}
+
+.responder:hover{
+    color:#ff6600;
+}
+
+/* Adaptación para celulares */
+@media (max-width:600px){
+
+    .comentario{
+        gap:10px;
+    }
+
+    .avatar{
+        width:50px;
+        height:50px;
+        min-width:50px;
+    }
+
+    .estrellas{
+        font-size:18px;
+    }
+
+    .texto{
+        font-size:14px;
+    }
+}
+
+/* CONTENEDOR PRODUCTO */
+.producto-panel{
+    width:100%;
+    max-width:1100px;
+    padding:20px;
+    box-sizing:border-box;
+    margin:20px auto;
+}
+
+.producto-contenido{
+    display:flex;
+    align-items:flex-start;
+    gap:30px;
+    flex-wrap:wrap;
+    width:100%;
+}
+
+/* IMAGEN */
+.producto-imagen{
+    width:100%;
+    max-width:300px;
+    min-height:180px;
+    background:#ddd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:18px;
+    font-style:italic;
+    font-weight:bold;
+    border:2px dashed #999;
+    color:#444;
+    cursor:pointer;
+    transition:background 0.2s, border-color 0.2s;
+}
+
+.producto-imagen:hover{
+    background:#eaeaea;
+    border-color:#ff5a3c;
+}
+
+.producto-imagen input[type="file"]{
+    display:none;
+}
+
+.producto-imagen span{
+    pointer-events:none;
+}
+
+/* DESCRIPCIÓN */
+.producto-descripcion{
+    flex:1;
+    min-width:250px;
+    height:120px;
+    background:#fff;
+    display:block;
+    text-align:left;
+    font-size:16px;
+    font-style:normal;
+    font-weight:500;
+    padding:8px;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    border-radius:8px;
+    resize:vertical;
+}
+
+.producto-descripcion-wrapper{display:flex;flex-direction:column;flex:1;gap:10px}
+
+.producto-descripcion{width:100%;min-height:120px}
+
+/* COSTO */
+.producto-costo{
+    margin-top:8px;
+    font-size:20px;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.producto-costo input{
+    font-size:18px;
+    padding:6px 8px;
+    width:140px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+/* BOTONES */
+.producto-botones{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-left:auto;
+}
+
+.btn-cancelar,
+.btn-publicar{
+    width:120px;
+    height:40px;
+    border:2px solid #ff5a3c;
+    background:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn-publicar{
+    background:#f5f5f5;
+}
+
+.btn-cancelar:hover,
+.btn-publicar:hover{
+    opacity:0.8;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    .producto-contenido{
+        flex-direction:column;
+    }
+
+    .producto-imagen{
+        width:100%;
+        height:180px;
+    }
+
+    .producto-descripcion{
+        width:100%;
+    }
+
+    .producto-botones{
+        width:100%;
+        margin-left:0;
+    }
+
+    .btn-cancelar,
+    .btn-publicar{
+        width:100%;
+    }
+
+    .producto-costo{
+        font-size:24px;
+    }
+}
+
+/* CV TEMPLATE */
+.cv-container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    font-family:Arial, sans-serif;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+.cv-section{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.cv-title{
+    color:#e64a19;
+    font-weight:bold;
+    font-style:italic;
+    text-decoration:underline;
+}
+
+.cv-content p{
+    margin:4px 0;
+}
+
+.cv-content label{
+    display:block;
+    margin-bottom:12px;
+}
+
+.cv-input{
+    width:100%;
+    margin-top:6px;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+    textarea.cv-input {
+        min-height:100px;
+        resize:vertical;
+    }
+
+    .cv-actions {
+        display:flex;
+        justify-content:flex-end;
+        gap:12px;
+        margin-top:20px;
+        padding-top:10px;
+        border-top:1px solid #ddd;
+    }
+
+    .btn-cancelar-cv,
+    .btn-crear-cv {
+        min-width:120px;
+        padding:12px 18px;
+        font-size:16px;
+        font-weight:bold;
+        border-radius:8px;
+        border:2px solid transparent;
+        cursor:pointer;
+        transition:background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-cancelar-cv {
+        background:#fff;
+        color:#333;
+        border-color:#999;
+    }
+
+    .btn-crear-cv {
+        background:#1e90ff;
+        color:#fff;
+        border-color:#1e90ff;
+    }
+
+    .btn-cancelar-cv:hover,
+    .btn-crear-cv:hover {
+        transform:translateY(-1px);
+        opacity:0.95;
+    }
+
+@media (max-width:768px){
+    .cv-section{
+        grid-template-columns:1fr;
+        gap:5px;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .crea-tu-cv-section,
+    .crea-tu-cv-section * {
+        visibility: visible;
+    }
+    .crea-tu-cv-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: #fff;
+    }
+    .menu,
+    nav,
+    .portada,
+    .perfil,
+    .publicaciones-section,
+    .me-gusta-section,
+    .respuestas-section,
+    .crear-publicaciones-section {
+        display: none !important;
+    }
+    .cv-actions {
+        display: none !important;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- MENU -->
+
+<nav>
+<ul>
+<li><button>Inició</button></li>
+<li><button>Productos</button></li>
+<li><button>comentarios y preguntas</button></li>
+<li><button>Prod. Mas vendidos</button></li>
+<li><button>Curso y Blog</button></li>
+<li><button class="cuenta">Cuenta</button></li>
+</ul>
+</nav>
+
+<!-- PORTADA -->
+
+<div class="portada">
+
+<div class="perfil">
+<img src="img/Captura.PNG">
+<h1>Nick</h1>
+</div>
+
+</div>
+
+<!-- MENU PERFIL -->
+
+<div class="menu">
+<button class="activo" data-view="publicaciones">Publicaciones</button>
+<button data-view="me-gusta">Me Gusta</button>
+<button data-view="respuestas">Respuestas</button>
+<button data-view="crear-publicaciones">Crear Publicaciones</button>
+<button data-view="crea-tu-cv">Crea tu CV</button>
+</div>
+
+<div class="publicaciones-section">
+
+<!-- PUBLICACION 1 -->
+
+<div class="publicacion">
+
+<img src="img/publicacion 4 (cuenta).PNG">
+
+<div class="info">
+Kit Escolar Completo, ideal para estudiantes que buscan tener todo lo necesario en un solo combo. Incluye paquete de 15 lápices de colores, paquete de 20 marcadores, lápiz negro, lapiceras, gomas, sacapuntas, tijera, corrector, pegamento, set de geometría y cartuchera.
+
+<div class="precio">
+Costo: $20.500
+</div>
+</div>
+
+<div class="reacciones">
+<button class="like-btn" onclick="toggleLike(this)">👍 <span>2500</span></button>
+<div>👁 6.4k</div>
+</div>
+
+</div>
+
+<!-- PUBLICACION 2 -->
+
+<div class="publicacion">
+
+<img src="img/publicacion 6 (cuenta).PNG">
+
+<div class="info">
+Set de útiles escolares Incluye lapicera, lapiz negro, regla de 20 cm goma, saca punta, paque de 6 lapices de colores, otro con 6 marcadores y una cartuchera con colores a eleccion roja, azul, verde, violeta o rosa.
+
+<div class="precio">
+Costo: $6.200
+</div>
+</div>
+
+<div class="reacciones">
+<button class="like-btn" onclick="toggleLike(this)">👍 <span>270</span></button>
+<div>👁 2.6k</div>
+</div>
+
+</div>
+
+<!-- PUBLICACION 3 -->
+
+<div class="publicacion">
+
+<img src="img/publicacion 5 (cuenta).PNG">
+
+<div class="info">
+Llego el set de utiles para los fanaticos de boca, con una carpeta A3 y una cartuchera con el escudo del equipo, 2 blocks de hojas rayadas, lapices negros y de colores, tijera, goma, saca punta, corrector, lapiceras, resaltadores y un equipo basico de geometria.
+
+<div class="precio">
+Costo: $36.800
+</div>
+</div>
+
+<div class="reacciones">
+<button class="like-btn" onclick="toggleLike(this)">👍 <span>580</span></button>
+<div>👁 1.8k</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="me-gusta-section hidden">
+
+<div class="publicacion">
+<img src="img/publicacion 7 (cuenta).PNG">
+<div class="info">
+te presentamos un combo que trae 1 Cuaderno A4 con espiral tapa blanda de 80 hojas, Libreta A6 con espiral tapa dura de 50 hojas, una Check list y un Planner Mensual A4. parta tener todo ordenado y decorado.
+<div class="precio">
+costo: $22.500
+</div>
+</div>
+<div class="reacciones">
+<div>👍 535</div>
+</div>
+</div>
+
+<div class="publicacion">
+<img src="img/publicacion 8 (cuenta).PNG">
+<div class="info">
+este es el mejor set de anotadores y separadores. cuenta con distintos colores, formas y cuenta con una buena cantidad de cada componente, empieza a darle estilo a tus cuadernos y carpetas con este set.
+<div class="precio">
+costo: 12.500
+</div>
+</div>
+<div class="reacciones">
+<div>👍 834</div>
+</div>
+</div>
+
+</div>
+
+<div class="crear-publicaciones-section hidden">
+<div class="producto-panel">
+    <div class="producto-contenido">
+        <label class="producto-imagen" for="producto-img-input">
+            <input id="producto-img-input" type="file" accept="image/*">
+            <span>Ingresa imagen</span>
+        </label>
+        <div class="producto-descripcion-wrapper">
+            <textarea id="producto-descripcion" class="producto-descripcion" placeholder="Escribe la descripción del producto..."></textarea>
+            <label class="producto-costo">Costo: $ <input id="producto-costo-input" type="number" min="0" step="0.01" value="0.00"></label>
+        </div>
+        <div class="producto-botones">
+            <button class="btn-cancelar" type="button">Cancelar</button>
+            <button class="btn-publicar" type="button">Publicar</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="crea-tu-cv-section hidden">
+
+<!-- PLANTILLA DE CURRÍCULUM -->
+<div class="cv-container">
+
+    <!-- Datos Personales -->
+    <div class="cv-section">
+        <div class="cv-title">Datos Personales:</div>
+        <div class="cv-content">
+            <label><strong>Nombre:</strong><input type="text" class="cv-input" placeholder="Ingresa tu nombre"></label>
+            <label><strong>Fecha de Nacimiento:</strong><input type="date" class="cv-input"></label>
+            <label><strong>Dirección:</strong><input type="text" class="cv-input" placeholder="Ingresa tu dirección"></label>
+            <label><strong>Teléfono:</strong><input type="tel" class="cv-input" placeholder="Ingresa tu teléfono"></label>
+            <label><strong>Correo Electrónico:</strong><input type="email" class="cv-input" placeholder="Ingresa tu correo"></label>
+        </div>
+    </div>
+
+    <!-- Formación Académica -->
+    <div class="cv-section">
+        <div class="cv-title">Formación Académica:</div>
+        <div class="cv-content">
+            <label><strong>Nombre de institución:</strong><input type="text" class="cv-input" placeholder="Ingresa el nombre de la institución"></label>
+            <label><strong>Título:</strong><input type="text" class="cv-input" placeholder="Ingresa el título"></label>
+            <label><strong>Estado:</strong><input type="text" class="cv-input" placeholder="Ingresa el estado"></label>
+        </div>
+    </div>
+
+    <!-- Experiencia Laboral -->
+    <div class="cv-section">
+        <div class="cv-title">Experiencia Laboral:</div>
+        <div class="cv-content">
+            <label><strong>Tipo de experiencia:</strong><input type="text" class="cv-input" placeholder="Ingresa el tipo de experiencia"></label>
+            <label><strong>Periodo:</strong><input type="text" class="cv-input" placeholder="Ingresa el periodo"></label>
+            <label><strong>Rol en ese trabajo:</strong><input type="text" class="cv-input" placeholder="Ingresa el rol"></label>
+        </div>
+    </div>
+
+    <!-- Cursos -->
+    <div class="cv-section">
+        <div class="cv-title">Cursos y Capacitación:</div>
+        <div class="cv-content">
+            <label><strong>Contenido:</strong><textarea id="cv-courses" class="cv-input" placeholder="Añade tus cursos y capacitación"></textarea></label>
+        </div>
+    </div>
+
+    <!-- Habilidades -->
+    <div class="cv-section">
+        <div class="cv-title">Habilidades:</div>
+        <div class="cv-content">
+            <label><strong>Contenido:</strong><textarea id="cv-skills" class="cv-input" placeholder="Añade tus habilidades"></textarea></label>
+        </div>
+    </div>
+
+    <!-- Idiomas -->
+    <div class="cv-section">
+        <div class="cv-title">Idiomas dominados:</div>
+        <div class="cv-content">
+            <label><strong>Contenido:</strong><textarea id="cv-languages" class="cv-input" placeholder="Añade los idiomas que dominas"></textarea></label>
+        </div>
+    </div>
+
+    <!-- Referencias -->
+    <div class="cv-section">
+        <div class="cv-title">Referencias:</div>
+        <div class="cv-content">
+            <label><strong>Contenido:</strong><textarea id="cv-references" class="cv-input" placeholder="Añade tus referencias"></textarea></label>
+        </div>
+    </div>
+
+    <!-- Perfil Profesional -->
+    <div class="cv-section">
+        <div class="cv-title">Perfil Profesional:</div>
+        <div class="cv-content">
+            <label><strong>Contenido:</strong><textarea id="cv-profile" class="cv-input" placeholder="Añade tu perfil profesional"></textarea></label>
+        </div>
+    </div>
+
+    <div class="cv-actions">
+        <button id="cancelar-cv-btn" class="btn-cancelar-cv" type="button">Cancelar</button>
+        <button id="crear-cv-btn" class="btn-crear-cv" type="button">Crear</button>
+    </div>
+
+</div>
+
+</div>
+
+<div class="respuestas-section hidden">
+
+<div class="comentarios">
+
+    <div class="comentario">
+        <div class="avatar">
+            <img src="https://i.pravatar.cc/100?img=12" alt="Usuario">
+        </div>
+        <div class="contenido">
+            <div class="estrellas">
+                ★ ★ ★ <span class="vacia">★ ★</span>
+            </div>
+            <div class="texto">
+                “Está bien, cumple con la publicación. Nada espectacular, pero tampoco malo. El envío fue rápido.”
+            </div>
+            <a href="#" class="responder">Responder</a>
+        </div>
+    </div>
+
+    <div class="comentario">
+        <div class="avatar">
+            <img src="https://i.pravatar.cc/100?img=13" alt="Usuario">
+        </div>
+        <div class="contenido">
+            <div class="estrellas">
+                ★ ★ ★ ★ <span class="vacia">★</span>
+            </div>
+            <div class="texto">
+                “Buena relación precio-calidad, cumple con la publicación, aunque uno de los marcadores vino medio seco.”
+            </div>
+            <a href="#" class="responder">Responder</a>
+        </div>
+    </div>
+
+    <div class="comentario">
+        <div class="avatar">
+            <img src="https://i.pravatar.cc/100?img=14" alt="Usuario">
+        </div>
+        <div class="contenido">
+            <div class="estrellas">
+                ★ ★ ★ ★ <span class="vacia">★</span>
+            </div>
+            <div class="texto">
+                los productos son buenos pero tengo una duda. ¿ en el combo de con la carpeta pueden venir un block de hoja rayada y otro cuadriculada?
+            </div>
+            <a href="#" class="responder">Responder</a>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+function toggleLike(button) {
+    const span = button.querySelector('span');
+    let count = parseInt(span.textContent.replace(/\D/g, ''), 10);
+
+    if (button.classList.contains('activo')) {
+        count = Math.max(0, count - 1);
+        button.classList.remove('activo');
+    } else {
+        count += 1;
+        button.classList.add('activo');
+    }
+
+    span.textContent = count.toLocaleString();
+}
+
+function setView(view) {
+    document.querySelectorAll('.menu button[data-view]').forEach(button => {
+        button.classList.toggle('activo', button.dataset.view === view);
+    });
+
+    document.querySelector('.publicaciones-section').classList.toggle('hidden', view !== 'publicaciones');
+    document.querySelector('.me-gusta-section').classList.toggle('hidden', view !== 'me-gusta');
+    document.querySelector('.respuestas-section').classList.toggle('hidden', view !== 'respuestas');
+    document.querySelector('.crear-publicaciones-section').classList.toggle('hidden', view !== 'crear-publicaciones');
+    document.querySelector('.crea-tu-cv-section').classList.toggle('hidden', view !== 'crea-tu-cv');
+}
+
+document.querySelectorAll('.menu button[data-view]').forEach(button => {
+    button.addEventListener('click', () => {
+        setView(button.dataset.view);
+    });
+});
+
+const productoImagenInput = document.getElementById('producto-img-input');
+const productoImagenLabel = document.querySelector('.producto-imagen span');
+const descripcionInput = document.getElementById('producto-descripcion');
+const costoInput = document.getElementById('producto-costo-input');
+const cancelarBtn = document.querySelector('.btn-cancelar');
+
+if (productoImagenInput) {
+    productoImagenInput.addEventListener('change', () => {
+        const file = productoImagenInput.files[0];
+        if (file) {
+            productoImagenLabel.textContent = file.name;
+        } else {
+            productoImagenLabel.textContent = 'Ingresa imagen';
+        }
+    });
+}
+
+if (costoInput) {
+    costoInput.addEventListener('blur', () => {
+        let val = parseFloat(costoInput.value);
+        if (isNaN(val)) val = 0;
+        costoInput.value = val.toFixed(2);
+    });
+}
+
+if (cancelarBtn) {
+    cancelarBtn.addEventListener('click', () => {
+        if (productoImagenInput) {
+            productoImagenInput.value = '';
+        }
+        if (productoImagenLabel) {
+            productoImagenLabel.textContent = 'Ingresa imagen';
+        }
+        if (descripcionInput) {
+            descripcionInput.value = '';
+        }
+        if (costoInput) {
+            costoInput.value = '0.00';
+        }
+    });
+}
+
+const cancelarCvBtn = document.getElementById('cancelar-cv-btn');
+const crearCvBtn = document.getElementById('crear-cv-btn');
+
+function clearCvFields() {
+    document.querySelectorAll('.crea-tu-cv-section .cv-input').forEach(field => {
+        if ('value' in field) {
+            field.value = '';
+        }
+    });
+}
+
+if (cancelarCvBtn) {
+    cancelarCvBtn.addEventListener('click', clearCvFields);
+}
+
+if (crearCvBtn) {
+    crearCvBtn.addEventListener('click', () => {
+        const confirmDownload = window.confirm('¿Deseas descargar un PDF con la información del CV?');
+        if (confirmDownload) {
+            window.print();
+        }
+    });
+}
+</script>
+
+</body>
+</html>

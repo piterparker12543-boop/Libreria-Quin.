@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="icon" href="img/logo.PNG" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comentarios y Preguntas</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#ffffff;
+    margin:0;
+    padding:0;
+}
+
+.contenedor{
+    width:100%;
+    margin:0;
+    border:none;
+}
+
+/* PORTADA */
+
+header{
+    height:120px;
+    background-image:url('img/fondo.PNG');
+    background-size:cover;
+    background-position:center;
+}
+
+/* MENÚ */
+
+nav{
+    background:#f5f5f5;
+    border-top:1px solid #999;
+    border-bottom:1px solid #999;
+    padding:12px 0;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    list-style:none;
+}
+
+nav ul li button{
+    padding:14px 22px;
+    background:#f7f7f7;
+    border:1px solid #aaa;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:18px;
+    color:#333;
+    cursor:pointer;
+    transition:background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+nav ul li button:hover{
+    background:#e6f0ff;
+    border-color:#1e90ff;
+    transform:translateY(-1px);
+}
+
+nav ul li button.activo{
+    color:#ff4d00;
+    border-color:#ff4d00;
+}
+
+.activo{
+    color:#ff4d00;
+}
+
+/* SECCIÓN PREGUNTAS */
+
+.comentario{
+    display:flex;
+    align-items:center;
+    padding:18px;
+    gap:20px;
+}
+
+.comentario img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+}
+
+.texto{
+    flex:1;
+}
+
+.texto h2{
+    font-size:22px;
+}
+
+.texto p{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.likes{
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    padding:8px 12px;
+    border-radius:5px;
+    transition:all 0.3s;
+}
+
+.likes:hover{
+    background:#f0f0f0;
+}
+
+.likes.activo{
+    background:#ff4d00;
+    color:white;
+}
+
+/* SECCIÓN OPINIONES */
+
+.opinion{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:20px;
+}
+
+.opinion img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+}
+
+.estrellas{
+    font-size:30px;
+    color:gold;
+}
+
+.mensaje{
+    font-size:20px;
+    font-weight:bold;
+}
+
+</style>
+
+<script>
+function toggleLike(element) {
+    const contador = element.querySelector('span');
+    const likes = parseInt(contador.textContent);
+    
+    if (element.classList.contains('activo')) {
+        contador.textContent = likes - 1;
+        element.classList.remove('activo');
+    } else {
+        contador.textContent = likes + 1;
+        element.classList.add('activo');
+    }
+}
+</script>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header></header>
+
+<nav>
+<ul>
+<li><button>Inició</button></li>
+<li><button>Productos</button></li>
+<li><button class="activo">comentarios y preguntas</button></li>
+<li><button>Prod. Mas vendidos</button></li>
+<li><button>Curso y Blog</button></li>
+<li><button>Cuenta</button></li>
+</ul>
+</nav>
+
+<!-- PREGUNTAS -->
+
+<div class="comentario">
+<img src="https://i.pravatar.cc/100?img=15">
+
+<div class="texto">
+<h2>Roberto</h2>
+<p>¿Puedo comprar varios productos en un solo pedido?</p>
+</div>
+
+<div class="likes" onclick="toggleLike(this)" data-likes="12">👍 <span>12</span></div>
+</div>
+
+<div class="comentario">
+<img src="https://i.pravatar.cc/100?img=32">
+
+<div class="texto">
+<h2>Camila</h2>
+<p>Me encantó la calidad de los útiles, súper recomendada la página.</p>
+</div>
+
+<div class="likes" onclick="toggleLike(this)" data-likes="130">👍 <span>130</span></div>
+</div>
+
+<div class="comentario">
+<img src="https://i.pravatar.cc/100?img=8">
+
+<div class="texto">
+<h2>Jack</h2>
+<p>¿Hay stock de carpetas y hojas A4? ¿Tienen promociones por compras grandes?</p>
+</div>
+
+<div class="likes" onclick="toggleLike(this)" data-likes="104">👍 <span>104</span></div>
+</div>
+
+<div class="comentario">
+<img src="https://i.pravatar.cc/100?img=25">
+
+<div class="texto">
+<h2>yesika</h2>
+<p>¿Hacen envíos a todo el país? ¿Qué formas de pago aceptan?</p>
+</div>
+
+<div class="likes" onclick="toggleLike(this)" data-likes="14">👍 <span>14</span></div>
+</div>
+
+<!-- OPINIONES -->
+
+<div class="opinion">
+<img src="https://i.pravatar.cc/100?img=5">
+
+<div>
+<div class="estrellas">★★★★☆</div>
+<div class="mensaje">
+La compra fue rápida y sencilla, volvería a comprar.
+</div>
+</div>
+</div>
+
+<div class="opinion">
+<img src="https://i.pravatar.cc/100?img=13">
+
+<div>
+<div class="estrellas">★★★★☆</div>
+<div class="mensaje">
+Muy buenos productos, compré cuadernos y me llegaron en perfecto estado.
+</div>
+</div>
+</div>
+
+<div class="opinion">
+<img src="img/Captura.PNG">
+
+<div>
+<div class="estrellas">★★★★★</div>
+<div class="mensaje">
+Muy buenos precios y variedad.
+</div>
+</div>
+</div>
+
+<div class="opinion">
+<img src="https://i.pravatar.cc/100?img=28">
+
+<div>
+<div class="estrellas">★★★★★</div>
+<div class="mensaje">
+excelente atención, encontré todo lo que necesitaba para la escuela.
+</div>
+</div>
+</div>
+
+</div>
+
+</body>
+</html>

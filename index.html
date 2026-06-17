@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="icon" href="img/logo.PNG" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Librería Quin.</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body{
+    height:100%;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#ffffff;
+    margin:0;
+    padding:0;
+}
+
+.contenedor{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    border:none;
+    min-height:100%;
+}
+
+
+/* ENCABEZADO */
+
+header{
+    min-height: 220px;
+    background-image: url('img/fondo 4.PNG');
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+header h1{
+    text-align:center;
+    font-size:80px;
+    color:#0b0068;
+    font-family:cursive;
+    padding-top:10px;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+}
+
+/* MENU */
+
+nav{
+    background:#f3f3f3;
+    border-top:1px solid #999;
+    border-bottom:1px solid #999;
+    padding:12px 0;
+}
+.menu{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    list-style:none;
+}
+
+nav ul li button{
+    padding:14px 22px;
+    background:#f7f7f7;
+    border:1px solid #aaa;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:16px;
+    color:#333;
+    cursor:pointer;
+    transition:background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+nav ul li button:hover{
+    background:#e6f0ff;
+    border-color:#1e90ff;
+    transform:translateY(-1px);
+}
+
+nav ul li button.inicio{
+    color:#ff4d00;
+    border-color:#ff4d00;
+}
+
+/* CONTENIDO */
+
+.contenido{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#f5f5f5;
+    padding:20px;
+    margin-top:-70px;
+    min-height:calc(100vh - 135px - 60px);
+    gap:20px;
+}
+
+/* IZQUIERDA */
+
+.logo-izq{
+    flex:0 0 220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.logo-izq img{
+    width:100%;
+    max-width:220px;
+    height:auto;
+}
+
+/* CENTRO */
+
+.texto{
+    flex:1 1 600px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 20px;
+}
+
+.texto h2{
+    font-size:55px;
+    color:#b56b6b;
+    margin-bottom:20px;
+    font-family:Georgia, serif;
+}
+
+.texto p{
+    font-size:20px;
+    line-height:1.7;
+    font-weight:bold;
+    color:#222;
+    font-style:italic;
+}
+
+/* DERECHA */
+
+.logo-der{
+    flex:0 0 220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.logo-der img{
+    max-width:220px;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    display:block;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <header>
+        <h1></h1>
+    </header>
+
+    <nav>
+    <div class="menu">
+        <a href="index.html"><button>Inicio</button></a>
+        <a href="Productos.html"><button>Productos</button></a>
+        <a href="Comentarios y preguntas.html"><button>Comentarios y preguntas</button></a>
+        <a href="Productos Más Vendidos.html"><button>Prod. Más vendidos</button></a>
+        <a href="Blog y Curso Interactivo.html"><button>Curso y Blog</button></a>
+        <a href="Cuenta.html"><button>Cuenta</button></a>
+    </div>
+</nav>
+
+    <section class="contenido">
+
+        <div class="logo-izq">
+            <img src="img/logo.PNG" alt="Logo izquierda">
+        </div>
+
+        <div class="texto">
+            <h2>¿Que ofrecemos?</h2>
+
+            <p>
+                Nos dedicamos a la venta de artículos de librería,
+                donde los usuarios pueden encontrar productos como
+                cuadernos, lapiceras, hojas, carpetas y útiles
+                escolares. En el sitio ofrece una navegación simple
+                y organizada, permitiendo explorar distintas categorías
+                y acceder fácilmente a todo lo necesario para el estudio,
+                la oficina o el uso diario.
+            </p>
+        </div>
+
+        <div class="logo-der">
+            <img src="img/logo 2.PNG" alt="Logo derecha">
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="icon" href="img/logo.PNG" type="image/x-icon">
+<title>Blog y Curso Interactivo</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Menú superior */
+    .menu {
+        display: flex;
+        background: #fff;
+        border-bottom: 2px solid black;
+        padding: 10px;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .menu button {
+        padding: 12px 22px;
+        background: #f7f7f7;
+        border: 1px solid #aaa;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s, border-color 0.2s;
+    }
+
+    .menu button:hover {
+        background: #e6f0ff;
+        border-color: #1e90ff;
+        transform: translateY(-1px);
+    }
+
+    .menu button.active {
+        color: #ff4d00;
+        border-color: #ff4d00;
+    }
+
+    /* Imágenes superiores */
+    .header-img {
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Botones Blog - Curso */
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        font-weight: bold;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .tabs button {
+        border: 2px solid gray;
+        padding: 8px 28px;
+        margin: 0;
+        cursor: pointer;
+        background: #f7f7f7;
+        border-radius: 8px;
+        transition: background 0.2s, transform 0.2s, border-color 0.2s;
+    }
+
+    .tabs button:hover {
+        background: #e6f0ff;
+        border-color: #1e90ff;
+        transform: translateY(-1px);
+    }
+
+    .tabs button.active {
+        background: #e7e7e7;
+        border-color: #1e90ff;
+    }
+
+    .course-button {
+        display: inline-block;
+        margin: 12px 0;
+        padding: 10px 18px;
+        background: #1e90ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.2s;
+    }
+
+    .course-button:hover {
+        background: #0f7ae8;
+    }
+
+    .course-form {
+        margin-top: 15px;
+        padding: 18px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        background: #f9f9fb;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .course-form input,
+    .course-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #bbb;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .course-form textarea {
+        resize: vertical;
+    }
+
+    /* Contenido general */
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 60px;
+        text-align: left;
+    }
+
+    .col {
+        width: 45%;
+    }
+
+    #blogContent .col {
+        text-align: center;
+    }
+
+    h3 {
+        color: red;
+        margin-bottom: 5px;
+    }
+
+    ul {
+        margin-left: 20px;
+    }
+
+    /* Oculto */
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<!-- Menú -->
+<div class="menu">
+    <button>Inicio</button>
+    <button>Productos</button>
+    <button>comentarios y preguntas</button>
+    <button>Prod. Mas vendidos</button>
+    <button>Curso y Blog</button>
+    <button>Cuenta</button>
+</div>
+
+<!-- Imagen horizontal entre el menú y Blog/Curso -->
+<div id="imgBlog" class="header-img" style="background-image: url('img/fondo2.PNG');"></div>
+
+<!-- Imagen para CURSO -->
+<div id="imgCurso" class="header-img hidden" style="background-image: url('img/fondo2.PNG');"></div>
+
+<!-- Botones -->
+<div class="tabs">
+    <button id="btnBlog" class="tab active">Blog</button>
+    <button id="btnCurso" class="tab">Curso</button>
+</div>
+
+<!-- CONTENIDO BLOG -->
+<div id="blogContent">
+
+    <div class="container">
+        <div class="col">
+            <h3>Consejos para volver a clases</h3>
+            <p>Comenzar un nuevo ciclo escolar es más fácil con los útiles correctos. En Librería Quin contamos con cuadernos, carpetas, mochilas y lapiceras de excelente calidad para acompañarte durante todo el año.</p>
+        </div>
+
+        <div class="col">
+            <h3>Recomendaciones</h3>
+            <p>Organizá tus materiales antes de empezar las clases y elegí productos duraderos para ahorrar dinero y mantener todo en buen estado.</p>
+            <h4 style="color:red;">¿Qué útiles son importantes?</h4>
+            <ul>
+                <li>Cuadernos resistentes</li>
+                <li>Lapiceras y resaltadores</li>
+                <li>Mochilas cómodas</li>
+                <li>Carpetas organizadoras</li>
+            </ul>
+        </div>
+
+        <div class="col">
+            <h3>Novedades</h3>
+            <p>Esta semana llegaron nuevos diseños de mochilas y cartucheras con promociones especiales.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CONTENIDO CURSO -->
+<div id="cursoContent" class="hidden">
+
+    <div class="container">
+        <!-- Columna izquierda -->
+        <div class="col">
+            <h3>Curso de Dibujo Creativo</h3>
+            <p>Desarrollá tu creatividad aprendiendo técnicas básicas de dibujo y coloreado.</p>
+            <p><b>Incluye</b></p>
+            <ul>
+                <li>Uso de lápices y marcadores</li>
+                <li>Sombras y proporciones</li>
+                <li>Dibujos paso a paso</li>
+            </ul>
+            <p><b>Duración:</b> 6 clases prácticas.</p>
+            <button id="inscribirseBtn" class="course-button">Inscribirse</button>
+            <form id="inscripcionForm" action="" method="post" class="hidden course-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Por qué querés inscribirte?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Edad</label>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="edad" value="6" required> 6
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="edad" value="7"> 7
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="edad" value="8"> 8
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="edad" value="9"> 9
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="edad" value="10"> 10
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="edad" value="11"> 11
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="edad" value="12"> 12
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="edad" value="13"> 13
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="course-button">Enviar inscripción</button>
+            </form>
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="col">
+            <h3>Curso de Técnicas de Estudio</h3>
+            <p>Aprendé métodos para organizar tu tiempo, tomar apuntes y mejorar tu rendimiento escolar.</p>
+            <p><b>Contenido del curso</b></p>
+            <ul>
+                <li>Organización del tiempo</li>
+                <li>Técnicas de resumen</li>
+                <li>Mapas conceptuales</li>
+                <li>Preparación para exámenes</li>
+            </ul>
+            <p><b>Duración:</b> 4 semanas</p>
+            <p><b>Modalidad:</b> Presencial y virtual</p>
+            <p><b>Materiales incluidos:</b> Cuaderno, resaltadores y guía de estudio.</p>
+            <button id="inscribirseBtn2" class="course-button">Inscribirse</button>
+            <form id="inscripcionForm2" action="" method="post" class="hidden course-form">
+                <div class="form-group">
+                    <label for="nombre2">Nombre completo</label>
+                    <input type="text" id="nombre2" name="nombre2" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email2">Correo electrónico</label>
+                    <input type="email" id="email2" name="email2" placeholder="ejemplo@mail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje2">Mensaje</label>
+                    <textarea id="mensaje2" name="mensaje2" rows="4" placeholder="¿Por qué querés inscribirte?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Horario</label>
+                    <div style="display: flex; gap: 15px;">
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="horario" value="mañana" required> Mañana
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="horario" value="tarde"> Tarde
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="horario" value="noche"> Noche
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Modalidad</label>
+                    <div style="display: flex; gap: 15px;">
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="modalidad" value="presencial" required> Presencial
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="modalidad" value="virtual"> Virtual
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Nivel</label>
+                    <div style="display: flex; gap: 15px;">
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="nivel" value="principiante" required> Principiante
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px;">
+                            <input type="radio" name="nivel" value="intermedio"> Intermedio
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edad2">Seleccionar edad</label>
+                    <select id="edad2" name="edad2" required>
+                        <option value="">Elige una edad</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                    </select>
+                </div>
+                <button type="submit" class="course-button">Enviar inscripción</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+    const btnBlog = document.getElementById("btnBlog");
+    const btnCurso = document.getElementById("btnCurso");
+
+    const blogContent = document.getElementById("blogContent");
+    const cursoContent = document.getElementById("cursoContent");
+
+    const imgBlog = document.getElementById("imgBlog");
+    const imgCurso = document.getElementById("imgCurso");
+
+    btnBlog.onclick = () => {
+        btnBlog.classList.add("active");
+        btnCurso.classList.remove("active");
+
+        blogContent.classList.remove("hidden");
+        cursoContent.classList.add("hidden");
+
+        imgBlog.classList.remove("hidden");
+        imgCurso.classList.add("hidden");
+    };
+
+    btnCurso.onclick = () => {
+        btnCurso.classList.add("active");
+        btnBlog.classList.remove("active");
+
+        cursoContent.classList.remove("hidden");
+        blogContent.classList.add("hidden");
+
+        imgCurso.classList.remove("hidden");
+        imgBlog.classList.add("hidden");
+    };
+
+    const inscribirseBtn = document.getElementById("inscribirseBtn");
+    const inscripcionForm = document.getElementById("inscripcionForm");
+    const inscribirseBtn2 = document.getElementById("inscribirseBtn2");
+    const inscripcionForm2 = document.getElementById("inscripcionForm2");
+
+    function setupInscripcion(btn, form) {
+        if (!btn || !form) return;
+
+        btn.onclick = () => {
+            form.classList.toggle("hidden");
+            btn.textContent = form.classList.contains("hidden") ? "Inscribirse" : "Ocultar formulario";
+        };
+    }
+
+    function setupFormSubmit(form) {
+        if (!form) return;
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            alert("Gracias por tu inscripción. El formulario se procesó en esta misma página.");
+            form.reset();
+            form.classList.add("hidden");
+        });
+    }
+
+    setupInscripcion(inscribirseBtn, inscripcionForm);
+    setupInscripcion(inscribirseBtn2, inscripcionForm2);
+    setupFormSubmit(inscripcionForm);
+    setupFormSubmit(inscripcionForm2);
+</script>
+
+</body>
+</html>
