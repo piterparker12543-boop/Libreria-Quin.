@@ -6,6 +6,10 @@
  *   $bodyClass  -> clase del <body> (index-page, productos-page, etc.)
  *   $headExtra  -> (opcional) estilos propios de la página
  */
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once __DIR__ . '/../config/env.php';
 
 $titulo_pagina = isset($titulo_pagina) && trim($titulo_pagina) !== ''

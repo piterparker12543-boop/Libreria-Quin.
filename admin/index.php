@@ -1,5 +1,8 @@
 <?php
 require_once '../config/conexion.php';
+require_once 'auth_guard.php'; // <-- 1. Incluir el guardián de seguridad
+
+verificarAdmin(); // <-- 2. Exigir que solo entre el administrador
 
 $stmt = $pdo->query("SELECT * FROM productos ORDER BY id_producto DESC");
 $registros = $stmt->fetchAll();
@@ -12,7 +15,15 @@ $registros = $stmt->fetchAll();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body class="container py-4">
-    <h2 class="mb-4">Panel de Administración - Librería Quin</h2>
+    <!-- Botón para cerrar sesión o volver al panel -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Panel de Productos - Librería Quin</h2>
+        <div>
+            <a href="admin_panel.php" class="btn btn-secondary btn-sm">Volver al Panel</a>
+            <a href="logout.php" class="btn btn-outline-danger btn-sm">Cerrar Sesión</a>
+        </div>
+    </div>
+
     <a href="crear.php" class="btn btn-primary mb-3">Agregar Nuevo Producto</a>
     
     <table class="table table-bordered table-striped">
